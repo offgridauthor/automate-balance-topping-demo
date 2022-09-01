@@ -15,19 +15,14 @@ async function main() {
 
   const requestParams = {
     type: 'FORTA',
-    name: 'Low balance alert',
+    name: 'Low balance alert - trigger refill',
     agentIDs: [BOT],
     fortaConditions: {
-      alertIDs: undefined, // string[]
-      minimumScannerCount: 1, 
-      severity: 2, // (unknown=0, info=1, low=2, medium=3, high=4, critical=5)
+      minimumScannerCount: 2, 
+      severity: 1, // (unknown=0, info=1, low=2, medium=3, high=4, critical=5)
     },
     autotaskTrigger: process.env.AUTOTASK_ID,
-    alertThreshold: {
-      amount: 2,
-      windowSeconds: 3600,
-    },
-    alertTimeoutMs: 0,
+    alertTimeoutMs: 120000,
     notificationChannels: [notificationChannels[0].notificationId],
   }
 
